@@ -1,37 +1,55 @@
-import java.util.*;
-import java.lang.Math.*;
-
+import java.util.Scanner;
 public class LineComparison {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter end points of first line in the format (x1,y1),(x2,y2)");
-		int x1 = sc.nextInt();
-		int y1 = sc.nextInt();
-		int x2 = sc.nextInt();
-		int y2 = sc.nextInt();
-		double res1 = lineLength(x1, y1, x2, y2);
-		System.out.println("Length of the first line: " + res1);
-
-		System.out.println("Enter end points of second line in the format (x1,y1),(x2,y2)");
-		int x3 = sc.nextInt();
-		int y3 = sc.nextInt();
-		int x4 = sc.nextInt();
-		int y4 = sc.nextInt();
-		double res2 = lineLength(x3, y3, x4, y4);
-		System.out.println("Length of the second line: " + res2);
-		String p = String.valueOf(res1);
-		String q = String.valueOf(res2);
-
-		if (p.compareTo(q)==0)
-			System.out.println("equal");
-		else
-			System.out.println("not equal");
-	}
-
-	public static double lineLength(int x1, int y1, int x2, int y2) {
-
-		double res = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+	double Length()
+	{
+		Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		int c=sc.nextInt();
+		int d=sc.nextInt();
+		int res1=(a-c)*(a-c);
+		int res2=(b-d)*(b-d);
+		double res=Math.sqrt(res1+res2);
 		return res;
 	}
-
+	void compare()
+	{	System.out.println("Enter the coordinates of first line");
+		String p=String.valueOf(Length());
+		System.out.println("Enter the coordinates of second line");
+		String q=String.valueOf(Length());
+		if(p.compareTo(q)==0)
+		{
+			System.out.println("THE TWO LINES ARE EQUAL");
+		}
+		else if(p.compareTo(q)<0)
+		{
+			System.out.println("THE FIRST LINE IS SMALLER IN LENGTH COMPARED TO THE SECOND LINE");
+		}
+		else if(p.compareTo(q)>0)
+		{
+			System.out.println("THE FIRST LINE IS LARGER IN LENGTH COMPARED TO THE SECOND LINE");
+		}
+	}
+	void equal()
+	{	System.out.println("Enter the coordinates of first line");
+		String p=String.valueOf(Length());
+		System.out.println("Enter the coordinates of second line");
+		String q=String.valueOf(Length());
+		if(p.equals(q))
+		{
+			System.out.println("THE TWO LINES ARE EQUAL");
+		}
+		else
+		{
+			System.out.println("THE TWO LINES ARE NOT EQUAL");
+		}
+	}
+	
+	public static void main (String a0rgs[])
+	{
+		LineComparison l=new LineComparison();
+		Scanner sc=new Scanner(System.in);
+		l.compare();	
+		l.equal();
+	}
 }
