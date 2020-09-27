@@ -22,7 +22,7 @@ public class LineComparison {
 		String p = String.valueOf(res1);
 		String q = String.valueOf(res2);
 
-		if (p.equals(q))
+		if (p.compareTo(q)==0)
 			System.out.println("equal");
 		else
 			System.out.println("not equal");
@@ -33,4 +33,5 @@ public class LineComparison {
 		double res = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 		return res;
 	}
+
 }
